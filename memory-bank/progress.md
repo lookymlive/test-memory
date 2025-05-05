@@ -51,7 +51,7 @@
 - ⬜ Password reset flow
 - ⬜ Enhanced profile statistics
 
-### Disciplines
+ Disciplines
 
 - ⬜ Binary Numbers training interface
 - ⬜ Matrices training interface
