@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Disciplinas - Speed Memory",
+  title: "Disciplinas - Test Memory",
   description: "Explora las diferentes disciplinas de entrenamiento de memoria",
 };
 

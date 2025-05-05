@@ -1,136 +1,124 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useAuth } from "@/lib/auth-provider";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function RegisterPage() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+export default function Register() {
+  const { signUp } = useAuth();
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    username: "",
+    fullName: "",
+  });
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
-
-    if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden");
-      return;
-    }
-
     setIsLoading(true);
+    setError(null);
 
-    // Simulación de registro - esto se reemplazará con Supabase
-    setTimeout(() => {
-      console.log("Registro con:", { name, email, password });
+    try {
+      const { error } = await signUp(formData.email, formData.password, {
+        username: formData.username,
+        fullName: formData.fullName,
+        avatarUrl: "",
+      });
+
+      if (error) {
+        setError(error.message);
+      } else {
+        router.push("/login?registered=true");
+      }
+    } catch (error: any) {
+      setError(error.message);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
-    <div className="container flex h-screen w-screen flex-col items-center justify-center">
-      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-        <div className="flex flex-col space-y-2 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight">
-            Crear una cuenta
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Ingresa tus datos para registrarte
-          </p>
+    <div className="mx-auto max-w-md space-y-6 p-6">
+      <div className="space-y-2 text-center">
+        <h1 className="text-3xl font-bold">Registro</h1>
+        <p className="text-gray-500 dark:text-gray-400">
+          Crea una cuenta para comenzar a entrenar tu memoria
+        </p>
+      </div>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-2">
+          <label htmlFor="username">Nombre de usuario</label>
+          <Input
+            id="username"
+            name="username"
+            placeholder="username"
+            required
+            value={formData.username}
+            onChange={handleChange}
+          />
         </div>
-
-        <div className="grid gap-6">
-          <form onSubmit={handleSubmit}>
-            <div className="grid gap-4">
-              <div className="grid gap-2">
-                <label
-                  htmlFor="name"
-                  className="text-sm font-medium leading-none"
-                >
-                  Nombre completo
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="grid gap-2">
-                <label
-                  htmlFor="email"
-                  className="text-sm font-medium leading-none"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="grid gap-2">
-                <label
-                  htmlFor="password"
-                  className="text-sm font-medium leading-none"
-                >
-                  Contraseña
-                </label>
-                <input
-                  id="password"
-                  type="password"
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="grid gap-2">
-                <label
-                  htmlFor="confirmPassword"
-                  className="text-sm font-medium leading-none"
-                >
-                  Confirmar contraseña
-                </label>
-                <input
-                  id="confirmPassword"
-                  type="password"
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                />
-              </div>
-
-              {error && (
-                <div className="text-sm text-red-500 mt-1">{error}</div>
-              )}
-
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Registrando..." : "Registrarse"}
-              </Button>
-            </div>
-          </form>
+        <div className="space-y-2">
+          <label htmlFor="fullName">Nombre completo</label>
+          <Input
+            id="fullName"
+            name="fullName"
+            placeholder="Nombre completo"
+            value={formData.fullName}
+            onChange={handleChange}
+          />
         </div>
-
+        <div className="space-y-2">
+          <label htmlFor="email">Email</label>
+          <Input
+            id="email"
+            name="email"
+            placeholder="ejemplo@email.com"
+            required
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="password">Contraseña</label>
+          <Input
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            required
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </div>
+        {error && (
+          <div className="rounded-md bg-red-50 p-3 text-sm text-red-600 dark:bg-red-950 dark:text-red-400">
+            {error}
+          </div>
+        )}
+        <Button className="w-full" type="submit" disabled={isLoading}>
+          {isLoading ? "Registrando..." : "Registrarse"}
+        </Button>
         <div className="text-center text-sm">
           ¿Ya tienes una cuenta?{" "}
-          <Link
-            href="/login"
-            className="text-primary underline-offset-4 hover:underline"
-          >
-            Inicia sesión
+          <Link href="/login" className="underline">
+            Iniciar sesión
           </Link>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
