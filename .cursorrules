@@ -1,0 +1,64 @@
+# Test Memory Project - Cursor Rules
+
+## Naming Conventions
+
+- React components use PascalCase: `LoginForm.tsx`, `DigitsTraining.tsx`
+- Utility functions use camelCase: `formatScore.ts`, `calculateAccuracy.ts`
+- Database entities use snake_case: `training_sessions`, `user_records`
+- CSS classes use kebab-case via Tailwind: `flex-col`, `space-y-4`
+
+## Component Patterns
+
+- UI components are placed in `src/components/ui/`
+- Page-specific components are placed in their respective page directories
+- Components use TypeScript interfaces for props
+- shadcn/ui components extend Radix UI primitives
+
+## Authentication Patterns
+
+- `useAuth()` hook is used to access authentication context
+- Protected routes are handled via middleware
+- Auth forms include email/password validation
+- Supabase is used for all auth operations
+
+## Database Access Patterns
+
+- Direct Supabase queries for database access
+- Row Level Security (RLS) policies control data access
+- User data is associated with `user.id` from auth
+- Records are automatically updated via triggers
+
+## State Management
+
+- React Context for global state (auth)
+- Component state for local UI state
+- Zustand for complex shared state (future implementation)
+
+## Error Handling
+
+- Forms display input-specific errors
+- Authentication errors display in form
+- Try/catch blocks for async operations
+- Consistent error message formatting
+
+## Project Structure Notes
+
+- The project uses Next.js 14 App Router
+- Authentication-related pages are in `src/app/(auth)/`
+- Protected pages check auth status in middleware
+- Public information pages are directly in `src/app/`
+
+## Styling Guidelines
+
+- All components use Tailwind CSS for styling
+- Theme switching is implemented via `next-themes`
+- Dark mode classes use `dark:` prefix
+- UI consistency maintained through shadcn/ui components
+- Responsive design with mobile-first approach
+
+## Performance Considerations
+
+- Memoize expensive calculations
+- Lazy load components when appropriate
+- Optimize memory discipline rendering for timed displays
+- Use Next.js Image component for optimized images
