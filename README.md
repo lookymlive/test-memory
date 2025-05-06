@@ -1,124 +1,102 @@
-# Speed Memory
+# Test Memory
 
-Speed Memory es un simulador para entrenar y competir en pruebas de memoria. Este proyecto es una modernización de la aplicación original desarrollada en 2015, transformándola de una aplicación de escritorio en .NET a una aplicación web moderna.
+Una aplicación web para el entrenamiento de la memoria a través de diversas disciplinas.
 
-## 📋 Descripción
+## Descripción
 
-Speed Memory permite a los usuarios practicar diferentes disciplinas de memoria como:
+Test Memory es una plataforma completa para el entrenamiento de la memoria que ofrece diferentes disciplinas de memorización:
 
-- Memorización de dígitos decimales (con diferentes tiempos: 0.5, 1, 2, 3, 4 segundos)
-- Memorización de números binarios (con diferentes tiempos: 0.5, 1, 2, 3, 4 segundos)
-- Memorización de matrices
-- Memorización de formas y colores
+- **Dígitos Decimales**: Memoriza secuencias de números.
+- **Números Binarios**: Memoriza secuencias de dígitos binarios (0 y 1).
+- **Matrices**: Memoriza patrones en matrices de diferentes tamaños.
+- **Formas y Colores**: Mejora tu memoria asociativa con formas y colores.
 
-## 🚀 Tecnologías
+Cada disciplina cuenta con diferentes niveles de dificultad y un sistema de puntuación para medir tu progreso.
 
-### Frontend
+## Características
 
-- **Next.js 14**: Framework de React con App Router
-- **TypeScript**: Para un código más seguro y mantenible
-- **Tailwind CSS**: Framework CSS utilitario
-- **shadcn/ui**: Componentes UI reutilizables y accesibles
-- **Framer Motion**: Para animaciones fluidas
+- **Autenticación de usuarios** con Supabase
+- **Disciplinas de memoria** con diferentes niveles de dificultad
+- **Interfaz visual mejorada** con indicadores de progreso y transiciones fluidas
+- **Sistema de puntuación** para cada disciplina
+- **Registros personales** para seguir tu progreso
+- **Dashboard de estadísticas** con métricas de rendimiento
+- **Modo oscuro/claro** para una mejor experiencia visual
 
-### Backend
+## Tecnologías
 
-- **Next.js API Routes**: Para endpoints de API
-- **Supabase**: Base de datos PostgreSQL, autenticación y almacenamiento
-- **Cloudinary**: Para gestión de imágenes y archivos multimedia
+- [Next.js 14](https://nextjs.org/) - Framework de React
+- [TypeScript](https://www.typescriptlang.org/) - Superset tipado de JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utility-first
+- [shadcn/ui](https://ui.shadcn.com/) - Componentes de UI reutilizables
+- [Supabase](https://supabase.io/) - Backend con autenticación y base de datos
 
-## 🏗️ Estructura del Proyecto
+## Instalación
 
-```psh
-/app
-  /api           # API routes
-  /(auth)        # Rutas de autenticación
-  /(dashboard)   # Rutas protegidas/dashboard
-  /disciplines   # Disciplinas de memoria 
-  /competitions  # Competiciones
-  /profile       # Perfil de usuario
-/components      # Componentes reutilizables
-/lib             # Utilidades y configuración
-/public          # Archivos estáticos
+```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
+
+# Navegar al directorio del proyecto
+cd test-memory
+
+# Instalar dependencias
+npm install
+
+# Configurar variables de entorno
+cp .env.example .env.local
+# Editar .env.local con tus credenciales de Supabase
+
+# Iniciar el servidor de desarrollo
+npm run dev
 ```
 
-## 📊 Base de Datos
+## Estructura del Proyecto
 
-Esquema básico de la base de datos (Supabase):
+- `/src` - Código fuente
+  - `/app` - Componentes y páginas (Next.js App Router)
+  - `/components` - Componentes reutilizables
+  - `/lib` - Utilidades y configuración
+- `/public` - Archivos estáticos
+- `/docs` - Documentación del proyecto
+- `/memory-bank` - Documentación del contexto y progreso del proyecto
 
-- **users**: Usuarios de la aplicación (gestionado por Supabase Auth)
-- **profiles**: Perfiles extendidos de usuarios
-- **disciplines**: Tipos de disciplinas de memoria
-- **training_sessions**: Sesiones de entrenamiento
-- **records**: Récords de usuarios
-- **competition_results**: Resultados de competiciones
+## Últimas Mejoras
 
-## 🚀 Instalación y Ejecución
+### Página de Récords y Dashboard
 
-1. **Clonar el repositorio**
+- Implementación de página de récords personales con sistema de pestañas
+- Visualización de récords mundiales de referencia
+- Dashboard con estadísticas detalladas de entrenamiento
+- Análisis de sesiones recientes y progreso del usuario
+- Métricas clave de rendimiento por disciplina
 
-   ```bash
-   git clone https://github.com/lookymlive/test-memory.git
-   cd speed-memory
-   ```
+### Mejoras Visuales
 
-2. **Instalar dependencias**
+- Barras de progreso para indicar el tiempo restante en cada elemento
+- Contadores de posición en las secuencias (ej: "Dígito 3 de 7")
+- Animaciones mejoradas para las transiciones entre elementos
+- Efectos visuales para destacar elementos activos
+- Indicadores de tiempo para mejorar la percepción entre cambios
 
-   ```bash
-   npm install
-   ```
+### Optimizaciones Técnicas
 
-3. **Configurar variables de entorno**
-   Crea un archivo `.env.local` con las siguientes variables:
+- Corrección de tipos en componentes de matrices
+- Animaciones CSS para transiciones suaves
+- Mejora en la presentación visual de cada disciplina
+- Indicadores claros del estado actual del entrenamiento
 
-psh
-   NEXT_PUBLIC_SUPABASE_URL=tu-url-de-supabase
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-clave-anonima-de-supabase
-   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=tu-cloud-name-de-cloudinary
+## Documentación
 
-4.**Ejecutar en desarrollo**
+Para más información detallada sobre el proyecto, consulta:
 
-   ```bash
-   npm run dev
-   ```
+- [Docs](./docs): Documentación técnica y guías
+- [Memory Bank](./memory-bank): Contexto del proyecto y seguimiento del progreso
 
-5.**Construir para producción**
+## Contribución
 
-   ```bash
-   npm run build
-   npm start
-   ```
+Las contribuciones son bienvenidas. Por favor, abre un issue para discutir cambios importantes antes de enviar un pull request.
 
-## 📝 Progreso Actual
-
-El proyecto está en desarrollo activo:
-
-### ✅ Completado
-
-- Inicialización del proyecto Next.js con TypeScript
-- Configuración de Tailwind CSS y shadcn/ui
-- Estructura de carpetas y componentes base
-- Página principal, de disciplinas y de récords
-- Sistema de navegación y tema claro/oscuro
-- Interfaz de autenticación (estructura)
-
-### 🔄 En Progreso
-
-- Configuración de Supabase para base de datos y autenticación
-- Desarrollo de la disciplina de dígitos decimales
-- Implementación de la lógica de puntuación
-
-### 📋 Próximos Pasos
-
-- Completar integración con Supabase
-- Implementar más disciplinas de memoria
-- Configurar Cloudinary para gestión de archivos
-- Desarrollar el sistema de competiciones
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Para cambios importantes, por favor abre primero un issue para discutir qué te gustaría cambiar.
-
-## 📄 Licencia
+## Licencia
 
 [MIT](LICENSE)
