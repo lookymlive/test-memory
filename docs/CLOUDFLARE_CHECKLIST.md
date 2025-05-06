@@ -3,9 +3,11 @@
 ## Pre-Deployment Tasks
 
 - [ ] Run a full build locally to ensure no errors
+
   ```bash
   npm run build
   ```
+
 - [ ] Ensure all environment variables are documented
 - [ ] Commit and push all changes to GitHub repository
 - [ ] Make sure `.gitignore` excludes sensitive files and build artifacts
@@ -93,8 +95,9 @@
 ---
 
 **Important Notes:**
+
 - Keep your API keys and environment variables secure
 - Monitor Cloudflare and Supabase usage to stay within free tier limits
 - Set up deployment notifications to stay informed of deployment status
 
-Last updated: May 6, 2025 
+Last updated: May 6, 2025
