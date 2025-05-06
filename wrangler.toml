@@ -1,0 +1,30 @@
+name = "test-memory"
+type = "webpack"
+account_id = "" # You can leave this blank for Pages projects
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2023-07-10"
+
+[site]
+bucket = ".next"
+entry-point = "."
+
+[build]
+command = "npm run build"
+upload.format = "service-worker"
+
+[build.upload]
+format = "service-worker"
+
+# Environment variables
+[vars]
+NODE_VERSION = "18"
+
+[env.production]
+# Production-specific settings
+workers_dev = false
+
+[env.development]
+# Development-specific settings
+workers_dev = true 
