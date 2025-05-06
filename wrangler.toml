@@ -14,12 +14,14 @@ entry-point = "."
 command = "npm run build"
 upload.format = "service-worker"
 
-[build.upload]
-format = "service-worker"
-
 # Environment variables
 [vars]
 NODE_VERSION = "18"
+NEXT_RUNTIME = "edge"
+
+# This is for Cloudflare Pages
+[pages_build_output_dir]
+value = ".next"
 
 [env.production]
 # Production-specific settings
