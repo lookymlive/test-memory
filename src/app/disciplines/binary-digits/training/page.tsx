@@ -7,7 +7,7 @@ import { supabase } from "@/lib/supabase";
 import {
   calculateScore,
   formatTime,
-  generateDigitSequence,
+  generateBinarySequence,
   getDifficultyLevelLength,
 } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -20,7 +20,7 @@ enum TrainingState {
   RESULT = "result",
 }
 
-export default function DecimalDigitsTrainingPage() {
+export default function BinaryDigitsTrainingPage() {
   const searchParams = useSearchParams();
   const difficulty = searchParams.get("difficulty") || "2";
   const router = useRouter();
@@ -42,8 +42,8 @@ export default function DecimalDigitsTrainingPage() {
 
   useEffect(() => {
     // Generate sequence when difficulty changes
-    const length = getDifficultyLevelLength(difficulty);
-    setSequence(generateDigitSequence(length));
+    const length = getDifficultyLevelLength(difficulty) + 2; // Binary is easier, so add 2 to the length
+    setSequence(generateBinarySequence(length));
   }, [difficulty]);
 
   useEffect(() => {
@@ -84,8 +84,8 @@ export default function DecimalDigitsTrainingPage() {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Only allow numbers
-    const value = e.target.value.replace(/[^0-9]/g, "");
+    // Only allow 0 and 1
+    const value = e.target.value.replace(/[^01]/g, "");
     setUserInput(value);
   };
 
@@ -107,7 +107,7 @@ export default function DecimalDigitsTrainingPage() {
           .from("training_sessions")
           .insert({
             user_id: user.id,
-            discipline_id: 1, // Decimal Digits
+            discipline_id: 2, // Binary Digits
             difficulty: difficulty,
             score: calculatedScore,
             correct_answers: Math.floor(calculatedScore / 10), // Each correct digit is worth 10 points
@@ -128,7 +128,7 @@ export default function DecimalDigitsTrainingPage() {
           .from("records")
           .select("score")
           .eq("user_id", user.id)
-          .eq("discipline_id", 1)
+          .eq("discipline_id", 2)
           .eq("difficulty", difficulty)
           .single();
 
@@ -153,22 +153,23 @@ export default function DecimalDigitsTrainingPage() {
     setUserInput("");
     setCurrentDigitIndex(-1);
     setTimer(0);
-    setSequence(generateDigitSequence(getDifficultyLevelLength(difficulty)));
+    const length = getDifficultyLevelLength(difficulty) + 2; // Binary is easier, so add 2 to the length
+    setSequence(generateBinarySequence(length));
     setIsRecord(false);
   };
 
   return (
     <div className="container py-12 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-8 text-center">
-        Entrenamiento: Dígitos Decimales ({difficulty}s)
+        Entrenamiento: Números Binarios ({difficulty}s)
       </h1>
 
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
         {trainingState === TrainingState.READY && (
           <div className="text-center space-y-6">
             <p className="text-lg">
-              Memorizarás {sequence.length} dígitos mostrados a {difficulty}{" "}
-              segundos por dígito.
+              Memorizarás {sequence.length} dígitos binarios mostrados a{" "}
+              {difficulty} segundos por dígito.
             </p>
             <Button onClick={startTraining} size="lg">
               Comenzar
@@ -192,7 +193,7 @@ export default function DecimalDigitsTrainingPage() {
                     }}
                   ></div>
                 </div>
-                <div className="text-7xl font-bold animate-bounce mt-6">
+                <div className="text-7xl font-bold animate-bounce mt-6 px-8 py-4 rounded-lg bg-gray-100 dark:bg-gray-700">
                   {sequence[currentDigitIndex]}
                 </div>
                 <div className="text-sm text-gray-500 mt-4">
@@ -212,7 +213,7 @@ export default function DecimalDigitsTrainingPage() {
                 Tiempo: {formatTime(timer)}
               </div>
               <p className="font-medium">
-                Ingresa los {sequence.length} dígitos en orden:
+                Ingresa los {sequence.length} dígitos binarios en orden:
               </p>
             </div>
 
@@ -221,7 +222,7 @@ export default function DecimalDigitsTrainingPage() {
               value={userInput}
               onChange={handleInputChange}
               maxLength={sequence.length}
-              placeholder="Ingresa los dígitos aquí"
+              placeholder="Ingresa los dígitos aquí (solo 0 y 1)"
               className="text-center text-xl py-6"
               autoFocus
             />
@@ -284,7 +285,7 @@ export default function DecimalDigitsTrainingPage() {
               <Button onClick={handleTryAgain}>Intentar de nuevo</Button>
               <Button
                 variant="outline"
-                onClick={() => router.push("/disciplines/decimal-digits")}
+                onClick={() => router.push("/disciplines/binary-digits")}
               >
                 Cambiar dificultad
               </Button>
