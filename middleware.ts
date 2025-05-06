@@ -11,13 +11,15 @@ export async function middleware(req: NextRequest) {
   } = await supabase.auth.getSession();
 
   // Rutas protegidas (requieren autenticación)
-  const protectedRoutes = ["/profile", "/disciplines"];
+  const protectedPaths = ["/profile", "/disciplines"];
 
   // Rutas de autenticación (solo accesibles sin autenticación)
   const authRoutes = ["/login", "/register"];
 
-  const isProtectedRoute = protectedRoutes.some((route) =>
-    req.nextUrl.pathname.startsWith(route)
+  const isProtectedRoute = protectedPaths.some(
+    (path) =>
+      req.nextUrl.pathname === path ||
+      req.nextUrl.pathname.startsWith(`${path}/`)
   );
 
   const isAuthRoute = authRoutes.some((route) =>
