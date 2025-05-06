@@ -25,6 +25,12 @@ const routes = [
     protected: false,
   },
   {
+    href: "/profile/dashboard",
+    label: "Dashboard",
+    active: (pathname: string) => pathname.startsWith("/profile/dashboard"),
+    protected: true,
+  },
+  {
     href: "/about",
     label: "Acerca de",
     active: (pathname: string) => pathname.startsWith("/about"),
@@ -50,19 +56,24 @@ export function Navbar() {
             </span>
           </Link>
           <nav className="hidden gap-6 md:flex">
-            {routes.map((route) => (
-              <Link
-                key={route.href}
-                href={route.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  route.active(pathname)
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {route.label}
-              </Link>
-            ))}
+            {routes.map((route) => {
+              // Only show protected routes when user is authenticated
+              if (route.protected && !user) return null;
+
+              return (
+                <Link
+                  key={route.href}
+                  href={route.href}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    route.active(pathname)
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {route.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
         <div className="flex items-center gap-2">
