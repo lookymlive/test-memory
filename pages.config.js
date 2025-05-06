@@ -1,42 +1,14 @@
 // Cloudflare Pages Configuration
 export default {
-  // Output directory to deploy
-  outDir: ".next",
+  // Basic configuration
+  buildCommand: "next build",
+  buildOutputDirectory: ".next",
 
-  // Build settings
-  build: {
-    command: "npm run build",
-    environment: {
-      NODE_VERSION: "18",
-    },
-  },
+  // Framework specific settings
+  framework: "nextjs",
 
-  // Routing
-  routes: [
-    // Static assets
-    {
-      pattern: "/_next/static/*",
-      headers: {
-        "cache-control": "public, max-age=31536000, immutable",
-      },
-    },
-    // API routes
-    {
-      pattern: "/api/*",
-      function: "api",
-    },
-    // Default catch all
-    {
-      pattern: "*",
-      function: "render",
-    },
-  ],
+  // Node.js settings
+  nodeVersion: "18",
 
-  // Functions configuration
-  functions: {
-    // Environment variables for functions
-    environment: {
-      NODE_ENV: "production",
-    },
-  },
+  // No need for custom routes or other complex configuration
 };
