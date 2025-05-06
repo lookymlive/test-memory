@@ -2,20 +2,31 @@
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const os = require("os");
 
 console.log("🚀 Iniciando build personalizado para Cloudflare Pages...");
 
 try {
   // 1. Ejecutar Next.js build con una configuración específica
   console.log("📦 Ejecutando Next.js build...");
-  execSync('NODE_OPTIONS="--max-old-space-size=4096" next build', {
+
+  // Detectar el sistema operativo para usar la sintaxis correcta
+  const isWindows = os.platform() === "win32";
+
+  // Configurar variables de entorno y comando según el sistema operativo
+  const env = {
+    ...process.env,
+    NEXT_TELEMETRY_DISABLED: "1",
+    NEXT_RUNTIME: "edge",
+    NODE_OPTIONS: "--max-old-space-size=4096",
+  };
+
+  const buildCommand = "next build";
+
+  // Ejecutar el comando de build
+  execSync(buildCommand, {
     stdio: "inherit",
-    env: {
-      ...process.env,
-      NEXT_TELEMETRY_DISABLED: "1",
-      // Forzar runtime de edge para todos los componentes
-      NEXT_RUNTIME: "edge",
-    },
+    env: env,
   });
 
   // 2. Copiar archivos estáticos adicionales
