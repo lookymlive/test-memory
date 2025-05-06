@@ -48,9 +48,15 @@
 
 ```psh
 # Supabase
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+NEXT_PUBLIC_SUPABASE_URL=your-project-url-placeholder
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-placeholder
 ```
+
+⚠️ **IMPORTANTE: SEGURIDAD DE CLAVES** ⚠️
+
+- NUNCA almacenes claves reales en la documentación o en el control de versiones
+- Usa siempre valores de ejemplo o placeholders en la documentación
+- Mantén las claves reales únicamente en archivos .env locales o en gestores de secretos
 
 ### Installation and Setup
 

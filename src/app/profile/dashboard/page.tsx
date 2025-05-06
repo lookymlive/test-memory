@@ -87,7 +87,7 @@ export default function DashboardPage() {
               disciplineCounts[session.discipline_id] = {
                 count: 0,
                 name:
-                  session.disciplines?.name ||
+                  session.disciplines?.[0]?.name ||
                   disciplineNames[session.discipline_id] ||
                   "Unknown",
               };
@@ -95,7 +95,11 @@ export default function DashboardPage() {
             disciplineCounts[session.discipline_id].count++;
           });
 
-          let mostPracticed = null;
+          let mostPracticed: {
+            discipline_id: number;
+            count: number;
+            name: string;
+          } | null = null;
           Object.entries(disciplineCounts).forEach(([id, { count, name }]) => {
             if (!mostPracticed || count > mostPracticed.count) {
               mostPracticed = { discipline_id: parseInt(id), count, name };
@@ -119,7 +123,7 @@ export default function DashboardPage() {
                   score: recordData[0].score,
                   difficulty: recordData[0].difficulty,
                   name:
-                    recordData[0].disciplines?.name ||
+                    recordData[0].disciplines?.[0]?.name ||
                     disciplineNames[recordData[0].discipline_id] ||
                     "Unknown",
                 }
@@ -181,7 +185,7 @@ export default function DashboardPage() {
   // Format discipline name and difficulty
   const formatTrainingSession = (session: any) => {
     const disciplineName =
-      session.disciplines?.name ||
+      session.disciplines?.[0]?.name ||
       disciplineNames[session.discipline_id] ||
       "Unknown";
 

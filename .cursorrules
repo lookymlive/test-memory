@@ -41,6 +41,15 @@
 - Try/catch blocks for async operations
 - Consistent error message formatting
 
+## Security Guidelines
+
+- NEVER expose private keys or credentials in documentation
+- NEVER commit .env files with real credentials
+- Always use placeholder values in examples
+- Always use environment variables for sensitive information
+- Secrets should only be stored in .env.local (which is gitignored)
+- All API keys exposed to the client must have appropriate restrictions
+
 ## Project Structure Notes
 
 - The project uses Next.js 14 App Router

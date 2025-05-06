@@ -167,7 +167,7 @@ export default function MatricesTrainingPage() {
       setIsLoading(true);
       try {
         // Save training session
-        const { data: sessionData, error: sessionError } = await supabase
+        const { error: sessionError } = await supabase
           .from("training_sessions")
           .insert({
             user_id: user.id,
@@ -182,8 +182,7 @@ export default function MatricesTrainingPage() {
               matrix,
               user_matrix: numberUserMatrix,
             },
-          })
-          .select();
+          });
 
         if (sessionError) throw sessionError;
 

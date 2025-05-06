@@ -9,7 +9,7 @@ export default function Home() {
           <span className="text-primary">Test Memory</span>
         </h1>
         <p className="text-xl text-center max-w-md">
-          Entrena tu memoria y compite con los mejores en diversas disciplinas
+          Entrena tu MENTE y compite con los mejores en diversas disciplinas
           de memoria.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">

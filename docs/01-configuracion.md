@@ -30,12 +30,20 @@ Crea un archivo `.env.local` en la raíz del proyecto con el siguiente contenido
 
 ```psh
 # Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_SUPABASE_URL=tu-url-de-supabase
+NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-clave-anonima-de-supabase
 
 # Cloudinary Configuration (opcional)
 # NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=tu-cloud-name-de-cloudinary
 ```
+
+⚠️ **IMPORTANTE: SEGURIDAD DE CLAVES** ⚠️
+
+- NUNCA compartas tus claves privadas de Supabase o cualquier otro servicio
+- NUNCA comprometas archivos .env con claves reales al control de versiones
+- NUNCA incluyas claves reales en la documentación
+- Usa siempre valores de ejemplo o placeholders en la documentación
+- El archivo .env.local está incluido en .gitignore para evitar exposición accidental
 
 ## Ejecución del Proyecto
 

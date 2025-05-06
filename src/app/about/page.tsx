@@ -22,7 +22,7 @@ export default function AboutPage() {
           como Ramón Campayo y otros competidores destacados.
         </p>
         <p className="mb-4">
-          En 2025, el proyecto ha sido modernizado para convertirse en una
+          En 2025, el proyecto ha sido modernizado por Lookym para convertirse en una
           aplicación web accesible desde cualquier dispositivo, manteniendo
           todas las funcionalidades del simulador original y ampliándolas con
           nuevas características.

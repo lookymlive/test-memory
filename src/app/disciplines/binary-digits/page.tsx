@@ -15,7 +15,7 @@ const difficulties = [
 ];
 
 export default function BinaryDigitsPage() {
-  const { user } = useAuth();
+  useAuth();
   const router = useRouter();
   const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(
     null

@@ -11,8 +11,6 @@ Test Memory es una plataforma completa para el entrenamiento de la memoria que o
 - **Matrices**: Memoriza patrones en matrices de diferentes tamaños.
 - **Formas y Colores**: Mejora tu memoria asociativa con formas y colores.
 
-Cada disciplina cuenta con diferentes niveles de dificultad y un sistema de puntuación para medir tu progreso.
-
 ## Características
 
 - **Autenticación de usuarios** con Supabase
@@ -58,44 +56,16 @@ npm run dev
   - `/components` - Componentes reutilizables
   - `/lib` - Utilidades y configuración
 - `/public` - Archivos estáticos
-- `/docs` - Documentación del proyecto
-- `/memory-bank` - Documentación del contexto y progreso del proyecto
+- `/docs` - Documentación técnica del proyecto
+- `/memory-bank` - Documentación del contexto y progreso
 
-## Últimas Mejoras
+## Estado Actual
 
-### Página de Récords y Dashboard
+- **Fase completada**: Configuración básica, autenticación, disciplinas de memoria, mejoras visuales
+- **En progreso**: Estadísticas avanzadas, sistema de competiciones
+- **Pendiente**: Despliegue, pruebas, optimizaciones finales
 
-- Implementación de página de récords personales con sistema de pestañas
-- Visualización de récords mundiales de referencia
-- Dashboard con estadísticas detalladas de entrenamiento
-- Análisis de sesiones recientes y progreso del usuario
-- Métricas clave de rendimiento por disciplina
-
-### Mejoras Visuales
-
-- Barras de progreso para indicar el tiempo restante en cada elemento
-- Contadores de posición en las secuencias (ej: "Dígito 3 de 7")
-- Animaciones mejoradas para las transiciones entre elementos
-- Efectos visuales para destacar elementos activos
-- Indicadores de tiempo para mejorar la percepción entre cambios
-
-### Optimizaciones Técnicas
-
-- Corrección de tipos en componentes de matrices
-- Animaciones CSS para transiciones suaves
-- Mejora en la presentación visual de cada disciplina
-- Indicadores claros del estado actual del entrenamiento
-
-## Documentación
-
-Para más información detallada sobre el proyecto, consulta:
-
-- [Docs](./docs): Documentación técnica y guías
-- [Memory Bank](./memory-bank): Contexto del proyecto y seguimiento del progreso
-
-## Contribución
-
-Las contribuciones son bienvenidas. Por favor, abre un issue para discutir cambios importantes antes de enviar un pull request.
+Consulta la documentación detallada en los directorios `/docs` y `/memory-bank` para más información sobre el proyecto, su estado actual y próximos pasos.
 
 ## Licencia
 

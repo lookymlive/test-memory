@@ -103,7 +103,7 @@ export default function BinaryDigitsTrainingPage() {
       setIsLoading(true);
       try {
         // Save training session
-        const { data: sessionData, error: sessionError } = await supabase
+        const { error: sessionError } = await supabase
           .from("training_sessions")
           .insert({
             user_id: user.id,
@@ -118,8 +118,7 @@ export default function BinaryDigitsTrainingPage() {
               sequence,
               user_input: userSequence,
             },
-          })
-          .select();
+          });
 
         if (sessionError) throw sessionError;
 

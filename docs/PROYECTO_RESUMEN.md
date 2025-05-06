@@ -1,102 +1,83 @@
-# Speed Memory - Resumen del Proyecto
+# Test Memory - Resumen del Proyecto
 
 ## Visión General
 
-Speed Memory es una modernización de un simulador de memoria originalmente desarrollado en 2015 como aplicación de escritorio en .NET. El objetivo es convertirlo en una aplicación web moderna que permita entrenar diferentes disciplinas de memoria.
+Test Memory es una aplicación web moderna para el entrenamiento de la memoria a través de diversas disciplinas. El proyecto implementa técnicas de entrenamiento mental con un enfoque en la precisión, velocidad y seguimiento del progreso.
 
 ## Estado Actual
 
-Hemos creado la estructura básica de un proyecto Next.js con:
+El proyecto se encuentra en la Fase 4 de desarrollo con:
 
-- Configuración de Next.js 14 con TypeScript
-- Tailwind CSS y shadcn/ui para componentes
-- Sistema de tema claro/oscuro
-- Páginas principales (home, disciplinas, récords, autenticación)
-- Estructura base lista para integración con Supabase
+- ✅ Configuración completa de Next.js 14 con TypeScript, Tailwind CSS y shadcn/ui
+- ✅ Autenticación y gestión de usuarios mediante Supabase
+- ✅ Implementación de las cuatro disciplinas principales:
+  - Dígitos Decimales
+  - Números Binarios
+  - Matrices
+  - Formas y Colores
+- ✅ Sistema de seguimiento de récords personales
+- ✅ Dashboard con estadísticas de entrenamiento
+- ✅ Interfaz visual mejorada con animaciones y feedback
 
-## Repositorio Actual
-
-Para crear un nuevo repositorio limpio:
-
-1. Iniciar un nuevo proyecto Next.js con TypeScript:
-
-   ```bash
-   npx create-next-app@latest speed-memory-app --typescript --tailwind --eslint
-   ```
-
-2. Instalar dependencias adicionales:
-
-   ```bash
-   npm install @radix-ui/react-slot @radix-ui/react-dropdown-menu @radix-ui/react-icons @radix-ui/react-label @radix-ui/react-tabs @radix-ui/react-toast @supabase/auth-helpers-nextjs @supabase/supabase-js class-variance-authority clsx framer-motion next-themes react-hook-form tailwind-merge tailwindcss-animate zod zustand
-   ```
-
-3. Seguir la guía de shadcn/ui para configurar los componentes:
-
-   ```bash
-   npx shadcn-ui@latest init
-   ```
-
-## Estructura Planificada
+## Estructura del Proyecto
 
 ```psh
 /src
   /app
-    /api           # API routes
-    /(auth)        # Rutas de autenticación
-    /(dashboard)   # Rutas protegidas/dashboard
-    /disciplines   # Disciplinas de memoria 
-    /about         # Página de información
-    /records       # Récords de usuarios
+    /(auth)        # Rutas de autenticación (login, register)
+    /(dashboard)   # Dashboard y perfil de usuario
+    /disciplines   # Disciplinas de memoria y entrenamiento
+    /records       # Récords personales y globales
   /components      # Componentes reutilizables
+    /ui            # Componentes de interfaz (shadcn/ui)
+    /auth          # Componentes de autenticación
+    /dashboard     # Componentes de dashboard
   /lib             # Utilidades y configuración
+    /supabase      # Cliente y tipos de Supabase
+    /utils         # Funciones auxiliares
 ```
-
-## Plan de Trabajo
-
-### Fase 1: [EN PROGRESO]
-
-- ✅ Configuración inicial del proyecto
-- ✅ Componentes UI básicos
-- ✅ Páginas principales (Home, About, Disciplines, Records)
-- ✅ Sistema de navegación
-- 🔄 Configuración de autenticación con Supabase
-
-### Fase 2: [PENDIENTE]
-
-- Implementar autenticación completa
-- Desarrollar perfiles de usuario
-- Middleware para rutas protegidas
-
-### Fase 3: [PENDIENTE]
-
-- Desarrollar disciplina de dígitos decimales
-- Implementar mecanismo de entrenamiento
-- Sistema de puntuación y récords
-
-### Fase 4: [PENDIENTE]
-
-- Añadir resto de disciplinas
-- Desarrollar modo competición
-- Integración con servicios de almacenamiento
-
-## Disciplinas a Implementar
-
-1. Dígitos decimales (0.5, 1, 2, 3, 4 segundos)
-2. Números binarios (0.5, 1, 2, 3, 4 segundos)
-3. Matrices
-4. Formas y colores
 
 ## Base de Datos (Supabase)
 
-Esquema planificado:
+La estructura de datos implementada incluye:
 
-- users (auth)
-- profiles
-- disciplines
-- training_sessions
-- records
-- competition_results
+- **auth.users**: Usuarios registrados (gestionado por Supabase Auth)
+- **public.profiles**: Perfiles de usuario extendidos
+- **public.disciplines**: Definiciones de disciplinas
+- **public.training_sessions**: Sesiones de entrenamiento registradas
+- **public.records**: Récords personales por disciplina
+- **public.competitions**: Definición de competiciones
+- **public.competition_results**: Resultados de participación en competiciones
 
-## Referencias
+## Plan de Trabajo Actual
 
-El diseño se basa en la aplicación original, modernizado con principios de UI/UX actuales.
+### En Progreso (Fase 4)
+
+- Mejoras en el dashboard de estadísticas
+- Refinamiento de interfaces de usuario
+- Optimizaciones de rendimiento
+
+### Próximamente (Fase 5)
+
+- Sistema de competiciones
+- Mejoras en perfiles de usuario
+- Funcionalidades sociales
+
+### Fase Final (Fase 6)
+
+- Testing completo
+- Optimizaciones finales
+- Despliegue a producción
+
+## Tecnologías Implementadas
+
+- **Frontend**: Next.js 14, React, TypeScript
+- **Estilos**: Tailwind CSS, shadcn/ui
+- **Backend**: Supabase (Auth, Database, Storage)
+- **Animaciones**: CSS animations, React transitions
+- **Validación**: Zod, React Hook Form
+- **Estado**: React Context, React Hooks
+
+## Colaboración y Desarrollo
+
+La documentación completa del proyecto se encuentra en los directorios `/docs` y `/memory-bank`, que contienen información detallada sobre la configuración, estructuras de datos, implementación de características y plan de trabajo.

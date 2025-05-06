@@ -1,76 +1,54 @@
 # Test Memory - Tareas Pendientes
 
-## Fase 1: Configuración Básica ✅
+## Fase Actual: Fase 4 - Mejoras de UI y Estadísticas
 
-- [x] Inicialización del proyecto Next.js con TypeScript
-- [x] Configuración de Tailwind CSS y shadcn/ui
-- [x] Estructura de carpetas y componentes base
-- [x] Configuración del tema claro/oscuro
-- [x] Creación de componentes básicos de UI
-- [x] Configuración de Supabase y esquema de base de datos
+### Tareas en Progreso 🔄
 
-## Fase 2: Autenticación y Perfiles 🔄
+1. **Mejoras del Dashboard de Estadísticas**
+   - [ ] Implementar visualizaciones detalladas del progreso
+   - [ ] Añadir análisis de tendencias de rendimiento
+   - [ ] Crear insights específicos por disciplina
 
-- [ ] Implementar página de registro
-- [ ] Implementar página de inicio de sesión
-- [ ] Crear middleware para rutas protegidas
-- [ ] Implementar página de perfil de usuario
-- [ ] Añadir funcionalidad para editar perfil
-- [ ] Crear hook personalizado useAuth para manejo de autenticación
+2. **Refinamientos de UI**
+   - [ ] Pulir transiciones entre etapas de entrenamiento
+   - [ ] Mejorar responsividad en todas las disciplinas
+   - [ ] Optimizar feedback visual para acciones del usuario
 
-## Fase 3: Disciplinas y Entrenamientos 🔄
+### Próxima Fase: Fase 5 - Sistema de Competiciones
 
-- [ ] Implementar página de listado de disciplinas
-- [ ] Crear componentes para cada tipo de entrenamiento:
-  - [ ] Dígitos Decimales
-  - [ ] Números Binarios
-  - [ ] Matrices
-  - [ ] Formas y Colores
-- [ ] Implementar lógica para diferentes velocidades (0.5s, 1s, 2s, 3s, 4s)
-- [ ] Crear sistema de puntuación
-- [ ] Implementar almacenamiento de sesiones y récords
-- [ ] Añadir visualización de estadísticas de entrenamiento
+1. **Desarrollo del Sistema de Competiciones**
+   - [ ] Crear interfaz para listar competiciones disponibles
+   - [ ] Implementar funcionalidad para unirse a competiciones
+   - [ ] Desarrollar sistema de clasificaciones
+   - [ ] Añadir notificaciones para nuevas competiciones
 
-## Fase 4: Competiciones y Clasificaciones 🔄
+2. **Mejoras de Perfil de Usuario**
+   - [ ] Implementar carga de avatares
+   - [ ] Añadir flujo de restablecimiento de contraseña
+   - [ ] Mejorar visualización de estadísticas de perfil
 
-- [ ] Crear página de competiciones disponibles
-- [ ] Implementar sistema para unirse a competiciones
-- [ ] Desarrollar página de clasificaciones por disciplina
-- [ ] Añadir filtros y ordenación en tablas de clasificación
-- [ ] Implementar notificaciones de nuevas competiciones
-- [ ] Crear tablero de líderes
+### Fase Final: Fase 6 - Testing y Despliegue
 
-## Fase 5: Experiencia de Usuario y Extras 🔄
+1. **Testing**
+   - [ ] Escribir tests unitarios
+   - [ ] Implementar tests de integración
+   - [ ] Realizar pruebas de rendimiento
 
-- [ ] Optimizar rendimiento y tiempos de carga
-- [ ] Mejorar accesibilidad (A11Y)
-- [ ] Implementar Cloudinary para gestión de imágenes
-- [ ] Añadir animaciones con Framer Motion
-- [ ] Crear un modo práctica sin registro
-- [ ] Implementar soporte para modo offline con PWA
-- [ ] Añadir traducciones (español/inglés)
+2. **Optimizaciones**
+   - [ ] Optimizar carga de datos
+   - [ ] Mejorar SEO
+   - [ ] Implementar caching
 
-## Fase 6: Testing y Despliegue 🔄
-
-- [ ] Escribir tests unitarios
-- [ ] Configurar CI/CD
-- [ ] Optimizar SEO
-- [ ] Preparar para despliegue en producción
-- [ ] Documentación final
-- [ ] Crear guía de usuario
+3. **Despliegue**
+   - [ ] Configurar CI/CD
+   - [ ] Preparar para producción
+   - [ ] Completar documentación final
 
 ## Bugs Conocidos 🐛
 
-- Ninguno reportado todavía
-
-## Notas sobre Prioridades
-
-Las tareas se ejecutarán siguiendo el orden de las fases, priorizando:
-
-1. Sistema de autenticación completo
-2. Implementación de la disciplina de dígitos decimales como primera funcionalidad
-3. Sistema de récords y clasificaciones
-4. Resto de disciplinas
+1. **Secuencia de Entrenamiento**: Optimizar la temporización para mostrar dígitos consistentemente
+2. **Manejo de Errores**: Implementar manejo de errores más robusto para operaciones de base de datos
+3. **Experiencia Móvil**: Mejorar la interfaz de matrices para pantallas pequeñas
 
 ## Recursos Útiles
 
@@ -78,4 +56,3 @@ Las tareas se ejecutarán siguiendo el orden de las fases, priorizando:
 - [Next.js App Router Docs](https://nextjs.org/docs/app)
 - [shadcn/ui Components](https://ui.shadcn.com/docs/components)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Framer Motion API](https://www.framer.com/motion/)

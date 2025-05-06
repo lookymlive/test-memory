@@ -1,38 +1,24 @@
-# Test Memory - Documentación
+# Test Memory - Documentación Técnica
 
-## Índice de Contenidos
+## Contenido
 
-1. [Introducción](./00-introduccion.md)
-2. [Configuración del Proyecto](./01-configuracion.md)
-3. [Estructura de la Base de Datos](./02-base-de-datos.md)
-4. [Implementación de Autenticación](./03-autenticacion.md)
-5. [Tareas Pendientes](./TODO.md)
+1. [Introducción](./00-introduccion.md) - Descripción del proyecto y sus objetivos
+2. [Configuración](./01-configuracion.md) - Instalación y preparación del entorno
+3. [Base de Datos](./02-base-de-datos.md) - Estructura y relaciones de datos
+4. [Autenticación](./03-autenticacion.md) - Sistema de usuarios y seguridad
+5. [Mejoras Implementadas](./MEJORAS_IMPLEMENTADAS.md) - Mejoras visuales y bugs corregidos
+6. [Tareas Pendientes](./TODO.md) - Plan de trabajo y próximos pasos
 
-## Propósito de la Documentación
+## Estado Actual
 
-Esta documentación tiene como objetivo proporcionar una guía completa para entender, configurar y continuar el desarrollo del proyecto Test Memory. Está diseñada para desarrolladores que trabajen en el proyecto, tanto nuevos como existentes.
+- **Completado**: Configuración del proyecto, esquema de base de datos, sistema de autenticación, interfaz básica
+- **En desarrollo**: Implementación de disciplinas, sistema de puntuación, estadísticas
+- **Próximamente**: Sistema de competiciones, mejoras de UX, optimizaciones
 
-## Cómo Usar Esta Documentación
+## Enlaces Rápidos
 
-- Comienza por la [Introducción](./00-introduccion.md) para entender el propósito y las características del proyecto
-- Sigue con la [Configuración del Proyecto](./01-configuracion.md) para preparar tu entorno de desarrollo
-- Consulta la [Estructura de la Base de Datos](./02-base-de-datos.md) para entender el modelo de datos
-- Revisa la [Implementación de Autenticación](./03-autenticacion.md) para conocer el sistema de autenticación
-- Verifica las [Tareas Pendientes](./TODO.md) para ver el trabajo que queda por hacer
-
-## Estado Actual del Proyecto
-
-Test Memory se encuentra actualmente en la Fase 1 de desarrollo:
-
-- ✅ Se ha configurado el proyecto base con Next.js, TypeScript, Tailwind CSS y shadcn/ui
-- ✅ Se ha configurado la base de datos en Supabase con todas las tablas necesarias
-- ✅ Se ha implementado el sistema de tema claro/oscuro
-- 🔄 Próximos pasos: Implementación de autenticación y desarrollo de disciplinas de memoria
-
-## Enlaces Útiles
-
-- [Supabase Dashboard](https://supabase.com) (Project: test-memory)
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [shadcn/ui Components](https://ui.shadcn.com/docs)
-- [Framer Motion API](https://www.framer.com/motion/)
+- [Supabase Dashboard](https://supabase.com) (Proyecto: test-memory)
+- [Repositorio en GitHub](https://github.com/lookymlive/test-memory)
+- [Documentación de Next.js](https://nextjs.org/docs)
+- [Documentación de Tailwind CSS](https://tailwindcss.com/docs)
+- [Componentes de shadcn/ui](https://ui.shadcn.com/docs)
