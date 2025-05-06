@@ -1,9 +1,0 @@
-# Cloudflare Pages Configuration
-build.command = "npm run build"
-build.output = ".next"
-compatibility_flags = ["nodejs_compat"]
-compatibility_date = "2023-07-10"
-
-# Environment variables
-[build.environment]
-NODE_VERSION = "18" 

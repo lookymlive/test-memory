@@ -1,7 +1,0 @@
-{
-  "always_use_build_output": true,
-  "build_config": {
-    "destination": ".next",
-    "root_dir": ""
-  }
-}
