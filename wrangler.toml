@@ -4,7 +4,9 @@ account_id = "" # You can leave this blank for Pages projects
 workers_dev = true
 route = ""
 zone_id = ""
-compatibility_date = "2023-07-10"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
 
 [site]
 bucket = ".next"
