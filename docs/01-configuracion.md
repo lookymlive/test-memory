@@ -14,7 +14,7 @@ Para trabajar con el proyecto Test Memory, necesitarás:
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone <URL-del-repositorio>
+git clone <Uhttps://github.com/lookymlive/test-memory>
 cd test-memory
 ```
 
@@ -30,8 +30,8 @@ Crea un archivo `.env.local` en la raíz del proyecto con el siguiente contenido
 
 ```psh
 # Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=https://gvchfxzyrixlxngyjnug.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2Y2hmeHp5cml4bHhuZ3lqbnVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYzOTc4NDcsImV4cCI6MjA2MTk3Mzg0N30.40SleC_Xt5_LxC-XVPXriDYl4dM2tFyv0apFmacgNv0
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
 
 # Cloudinary Configuration (opcional)
 # NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=tu-cloud-name-de-cloudinary
