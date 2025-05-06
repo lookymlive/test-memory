@@ -4,14 +4,10 @@ const nextConfig = {
   swcMinify: true,
   images: {
     unoptimized: true, // Required for Cloudflare Pages deployment
-    domains: ["localhost"], // Add any other domains you use for images
   },
-  // Ensure compatibility with Cloudflare Pages
-  experimental: {
-    // Necessary for Cloudflare Pages edge functions
-    appDir: true,
-  },
-  // Add any other configuration options here
+  // Cloudflare Pages compatibility
+  output: "standalone",
+  // Remove experimental settings that might cause issues
 };
 
 module.exports = nextConfig;
